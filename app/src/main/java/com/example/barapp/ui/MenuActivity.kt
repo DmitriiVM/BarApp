@@ -8,8 +8,8 @@ import com.example.barapp.R
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.motion_layout_header.*
-import kotlinx.android.synthetic.main.motion_layout_header.view.*
+import kotlinx.android.synthetic.main.header.*
+import kotlinx.android.synthetic.main.header.view.*
 
 class MenuActivity : AppCompatActivity() {
 
@@ -25,8 +25,6 @@ class MenuActivity : AppCompatActivity() {
             tab.icon = getDrawable(icons[position])
         }.attach()
 
-        coordinateMotion()
-
         viewPager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback(){
 
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
@@ -36,13 +34,4 @@ class MenuActivity : AppCompatActivity() {
             }
         })
     }
-
-    private fun coordinateMotion() {
-        appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
-            Log.d("mmm", "MenuActivity :  coordinateMotion --  $verticalOffset")
-//            val seekPosition = - verticalOffset/appBarLayout.totalScrollRange.toFloat()
-//            motionLayout.progress = seekPosition
-        })
-    }
-
 }
