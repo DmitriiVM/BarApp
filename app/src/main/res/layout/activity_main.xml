@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/coordinatorLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -51,27 +52,218 @@
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
 
-    <androidx.constraintlayout.motion.widget.MotionLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        app:layoutDescription="@xml/activity_main_scene">
+<!--    <LinearLayout-->
+<!--        android:id="@+id/bottomSheet"-->
+<!--        app:layout_behavior=".ui.behaviors.BottomSheetBehavior"-->
+<!--        android:background="@color/color_blue"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:orientation="vertical"-->
+<!--        android:layout_height="wrap_content">-->
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:gravity="center"-->
+<!--            android:textSize="22dp"-->
+<!--            android:text="Ваш заказ" />-->
+<!--    </LinearLayout>-->
+
+    <FrameLayout
+        android:id="@+id/menuScrim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:elevation="5dp"
+        android:alpha="0"
+        android:background="@color/colorScrim"
+        android:visibility="invisible"
+        />
+
+    <LinearLayout
+        android:id="@+id/bottomSheet"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        android:background="@color/color_blue"
+        android:layout_width="match_parent"
+        android:elevation="4dp"
+        app:behavior_peekHeight="50dp"
+        android:layout_height="400dp">
 
 
         <TextView
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="30dp"
-            android:text="Button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-    </androidx.constraintlayout.motion.widget.MotionLayout>
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:textSize="22dp"
+            android:text="Ваш заказ" />
+    </LinearLayout>
 
-    <androidx.constraintlayout.widget.Guideline
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        app:layout_behavior=".ui.behaviors.FabBehavior"
+        android:id="@+id/fabMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical" />
+        app:layout_anchor="@id/bottomSheet"
+        app:layout_anchorGravity="top|end"
+        android:layout_gravity="top"
+        android:layout_marginRight="16dp"
+        app:srcCompat="@drawable/ic_menu" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabExit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:clickable="true"
+        app:fabSize="mini"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="100dp"
+        android:layout_marginRight="16dp"
+        app:srcCompat="@drawable/ic_exit" />
+
+    <TextView
+        android:id="@+id/textViewExit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Выйти"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:elevation="5dp"
+        android:background="@android:color/white"
+        app:layout_anchor="@id/fabExit"
+        android:layout_marginRight="70dp"
+        app:layout_anchorGravity="center"/>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="mini"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:focusable="true"
+        android:clickable="true"
+        android:background="?android:attr/selectableItemBackground"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="150dp"
+        android:layout_marginRight="16dp"
+        app:srcCompat="@drawable/ic_account" />
+
+    <TextView
+        android:id="@+id/textViewAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Аккаунт"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:elevation="5dp"
+        android:background="@android:color/white"
+        app:layout_anchor="@id/fabAccount"
+        android:layout_marginRight="70dp"
+        app:layout_anchorGravity="center"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabSpecialOffer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="mini"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="200dp"
+        android:layout_marginRight="16dp"
+        app:srcCompat="@drawable/ic_action" />
+
+    <TextView
+        android:id="@+id/textViewSpecialOffer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Акции"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:elevation="5dp"
+        android:background="@android:color/white"
+        app:layout_anchor="@id/fabSpecialOffer"
+        android:layout_marginRight="70dp"
+        app:layout_anchorGravity="center"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabBooking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="mini"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="250dp"
+        android:layout_marginRight="16dp"
+        app:srcCompat="@drawable/ic_reserve" />
+
+    <TextView
+        android:id="@+id/textViewBooking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Бронирование"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:elevation="5dp"
+        android:background="@android:color/white"
+        app:layout_anchor="@id/fabBooking"
+        android:layout_marginRight="70dp"
+        app:layout_anchorGravity="center"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabContacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="mini"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="300dp"
+        android:layout_marginRight="16dp"
+        app:srcCompat="@drawable/ic_info" />
+
+    <TextView
+        android:id="@+id/textViewContacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Контакты"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:elevation="5dp"
+        android:background="@android:color/white"
+        app:layout_anchor="@id/fabContacts"
+        android:layout_marginRight="70dp"
+        app:layout_anchorGravity="center"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
