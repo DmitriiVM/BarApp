@@ -11,14 +11,15 @@ import kotlinx.android.synthetic.main.menu_item.view.*
 class MenuRecyclerViewAdapter(): RecyclerView.Adapter<MenuRecyclerViewAdapter.ViewHolder>() {
 
     private var menu: List<MenuItem> = arrayListOf()
+    private var quantity = 0
 
     fun setMenu(menu: List<MenuItem>){
-        this.menu = menu
+        this.menu = menu + menu + menu + menu
         notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
-        ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.menu_item, parent, false))
+        ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.menu_item_2, parent, false))
 
     override fun getItemCount(): Int = menu.size
 
@@ -28,8 +29,21 @@ class MenuRecyclerViewAdapter(): RecyclerView.Adapter<MenuRecyclerViewAdapter.Vi
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view){
 
+        private var quantity = 0
+
         fun onBind(menuItem: MenuItem) {
-            itemView.textView.text = menuItem.description
+            with(itemView){
+                textViewName.text = menuItem.name
+                textViewPrice.text = "${menuItem.price} р."
+
+
+                buttonPlus.setOnClickListener {
+                    textViewQuantity.text =  (++quantity).toString()
+                }
+                buttonMinus.setOnClickListener {
+                    textViewQuantity.text =  (--quantity).toString()
+                }
+            }
         }
 
     }

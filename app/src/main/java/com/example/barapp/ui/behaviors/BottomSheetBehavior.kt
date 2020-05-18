@@ -7,8 +7,9 @@ import android.widget.LinearLayout
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.math.MathUtils
 import androidx.core.view.ViewCompat
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 
-class BottomSheetBehavior(): CoordinatorLayout.Behavior<LinearLayout>() {
+class BottomSheetBehavior(): BottomSheetBehavior<LinearLayout>() {
 
     constructor(ctx: Context, attrs: AttributeSet): this()
 

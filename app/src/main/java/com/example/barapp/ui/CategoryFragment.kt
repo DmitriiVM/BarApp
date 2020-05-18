@@ -72,10 +72,11 @@ class CategoryFragment : Fragment() {
         viewModel.menuLiveData.observe(viewLifecycleOwner, Observer {result ->
             when (result) {
                 is ResponseResult.Loading -> {
-                    Log.d("mmm", "MenuActivity :  subscribeForMenu --  ${result.isLoading}")
+//                    Log.d("mmm", "MenuActivity :  subscribeForMenu --  ${result.isLoading}")
                 }
                 is ResponseResult.Data -> {
                     val menu = result.menu
+                    Log.d("mmm", "CategoryFragment :  subscribeForMenu --  ${menu[0]}")
                     adapter.setMenu(menu)
                 }
                 is ResponseResult.Error -> {

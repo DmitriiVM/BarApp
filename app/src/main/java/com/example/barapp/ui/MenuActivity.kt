@@ -57,10 +57,10 @@ class MenuActivity : AppCompatActivity() {
             val progress = -verticalOffset / appBarLayout.totalScrollRange.toFloat()
             appBarLayout.textViewName.alpha = 0.7.toFloat() - progress
 
-//            val offsetDiff = verticalOffset - lastPosition
-//            lastPosition = verticalOffset
-//            Log.d("mmm", "MenuActivity :  offsetDiff --  $offsetDiff")
-//            bottomSheet.translationY = androidx.core.math.MathUtils.clamp(bottomSheet.translationY - offsetDiff.toFloat(), 0f, this.dpToPx(50))
+            val offsetDiff = verticalOffset - lastPosition
+            lastPosition = verticalOffset
+            Log.d("mmm", "MenuActivity :  offsetDiff --  $offsetDiff")
+            bottomSheet.translationY = androidx.core.math.MathUtils.clamp(bottomSheet.translationY - offsetDiff.toFloat(), 0f, this.dpToPx(50))
         })
 
 //        recycleView.addOnScrollListener(object : RecyclerView.OnScrollListener(){

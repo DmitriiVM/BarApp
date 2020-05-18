@@ -19,7 +19,7 @@
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            android:background="@color/colorWhite"
             app:tabIconTint="@drawable/tab_color">
 
             <com.google.android.material.tabs.TabItem
@@ -52,24 +52,6 @@
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
 
-<!--    <LinearLayout-->
-<!--        android:id="@+id/bottomSheet"-->
-<!--        app:layout_behavior=".ui.behaviors.BottomSheetBehavior"-->
-<!--        android:background="@color/color_blue"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        android:orientation="vertical"-->
-<!--        android:layout_height="wrap_content">-->
-
-
-<!--        <TextView-->
-<!--            android:id="@+id/textView2"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:gravity="center"-->
-<!--            android:textSize="22dp"-->
-<!--            android:text="Ваш заказ" />-->
-<!--    </LinearLayout>-->
 
     <FrameLayout
         android:id="@+id/menuScrim"
@@ -88,6 +70,7 @@
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
         android:background="@color/color_blue"
         android:layout_width="match_parent"
+        android:orientation="vertical"
         android:elevation="4dp"
         app:behavior_peekHeight="50dp"
         android:layout_height="400dp">
@@ -98,8 +81,16 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
+            android:textColor="@color/color_blue_dark"
+            android:textStyle="italic"
             android:textSize="22dp"
             android:text="Ваш заказ" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Заказать"
+            android:layout_gravity="bottom"/>
     </LinearLayout>
 
 
@@ -141,7 +132,8 @@
         android:visibility="invisible"
         tools:visibility="visible"
         android:elevation="5dp"
-        android:background="@android:color/white"
+        android:background="@color/colorScrim"
+        android:textColor="@android:color/white"
         app:layout_anchor="@id/fabExit"
         android:layout_marginRight="70dp"
         app:layout_anchorGravity="center"/>
@@ -174,7 +166,8 @@
         android:visibility="invisible"
         tools:visibility="visible"
         android:elevation="5dp"
-        android:background="@android:color/white"
+        android:background="@color/colorScrim"
+        android:textColor="@android:color/white"
         app:layout_anchor="@id/fabAccount"
         android:layout_marginRight="70dp"
         app:layout_anchorGravity="center"/>
@@ -203,7 +196,8 @@
         android:visibility="invisible"
         tools:visibility="visible"
         android:elevation="5dp"
-        android:background="@android:color/white"
+        android:background="@color/colorScrim"
+        android:textColor="@android:color/white"
         app:layout_anchor="@id/fabSpecialOffer"
         android:layout_marginRight="70dp"
         app:layout_anchorGravity="center"/>
@@ -232,7 +226,8 @@
         android:visibility="invisible"
         tools:visibility="visible"
         android:elevation="5dp"
-        android:background="@android:color/white"
+        android:background="@color/colorScrim"
+        android:textColor="@android:color/white"
         app:layout_anchor="@id/fabBooking"
         android:layout_marginRight="70dp"
         app:layout_anchorGravity="center"/>
@@ -261,7 +256,8 @@
         android:visibility="invisible"
         tools:visibility="visible"
         android:elevation="5dp"
-        android:background="@android:color/white"
+        android:background="@color/colorScrim"
+        android:textColor="@android:color/white"
         app:layout_anchor="@id/fabContacts"
         android:layout_marginRight="70dp"
         app:layout_anchorGravity="center"/>
