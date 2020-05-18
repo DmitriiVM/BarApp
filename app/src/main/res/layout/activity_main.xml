@@ -48,6 +48,7 @@
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
+        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
@@ -65,34 +66,7 @@
         android:visibility="invisible"
         />
 
-    <LinearLayout
-        android:id="@+id/bottomSheet"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-        android:background="@color/color_blue"
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:elevation="4dp"
-        app:behavior_peekHeight="50dp"
-        android:layout_height="400dp">
-
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:gravity="center"
-            android:textColor="@color/color_blue_dark"
-            android:textStyle="italic"
-            android:textSize="22dp"
-            android:text="Ваш заказ" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Заказать"
-            android:layout_gravity="bottom"/>
-    </LinearLayout>
-
+    <include android:id="@+id/bottomSheet" layout="@layout/bottom_sheet"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         app:layout_behavior=".ui.behaviors.FabBehavior"

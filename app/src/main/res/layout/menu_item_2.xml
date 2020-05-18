@@ -8,12 +8,17 @@
 
     <TextView
         android:id="@+id/textViewName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:lines="1"
         android:text="Пепперони"
         android:textSize="16dp"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="@+id/buttonMinus"
+        app:layout_constraintEnd_toStartOf="@+id/textViewPrice"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="@+id/buttonMinus" />
 

@@ -33,7 +33,7 @@ class MenuRecyclerViewAdapter(): RecyclerView.Adapter<MenuRecyclerViewAdapter.Vi
 
         fun onBind(menuItem: MenuItem) {
             with(itemView){
-                textViewName.text = menuItem.name
+                textViewName.text = "${menuItem.name} ...................................."
                 textViewPrice.text = "${menuItem.price} р."
 
 

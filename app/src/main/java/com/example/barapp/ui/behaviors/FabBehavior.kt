@@ -3,7 +3,6 @@ package com.example.barapp.ui.behaviors
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
-import android.widget.LinearLayout
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.marginRight
 import com.example.barapp.extensions.dpToPx
@@ -13,13 +12,13 @@ class FabBehavior(): CoordinatorLayout.Behavior<FloatingActionButton>() {
 
     constructor(ctx: Context, attrs: AttributeSet): this()
 
-    override fun layoutDependsOn(
-        parent: CoordinatorLayout,
-        child: FloatingActionButton,
-        dependency: View
-    ): Boolean {
-        return dependency is LinearLayout
-    }
+//    override fun layoutDependsOn(
+//        parent: CoordinatorLayout,
+//        child: FloatingActionButton,
+//        dependency: View
+//    ): Boolean {
+//        return dependency is LinearLayout
+//    }
 
     override fun onDependentViewChanged(
         parent: CoordinatorLayout,
