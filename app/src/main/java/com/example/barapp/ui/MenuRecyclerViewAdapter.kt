@@ -36,6 +36,7 @@ class MenuRecyclerViewAdapter(): RecyclerView.Adapter<MenuRecyclerViewAdapter.Vi
                 textViewName.text = "${menuItem.name} ...................................."
                 textViewPrice.text = "${menuItem.price} р."
 
+//                itemView.setOnClickListener {  }
 
                 buttonPlus.setOnClickListener {
                     textViewQuantity.text =  (++quantity).toString()

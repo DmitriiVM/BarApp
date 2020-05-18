@@ -19,7 +19,9 @@
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorWhite"
+            android:background="@color/color_blue"
+            app:tabIndicatorColor="@color/color_blue_dark"
+            app:tabRippleColor="@color/color_blue_dark"
             app:tabIconTint="@drawable/tab_color">
 
             <com.google.android.material.tabs.TabItem

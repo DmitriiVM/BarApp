@@ -3,18 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="400dp"
+    android:layout_height="450dp"
     android:elevation="4dp"
     android:background="@drawable/order_shape"
     android:orientation="vertical"
     app:behavior_peekHeight="50dp"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
-
-<!--    <View-->
-<!--        android:background="@color/color_blue"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"/>-->
-
 
     <TextView
         android:id="@+id/textView2"
@@ -22,9 +16,9 @@
         android:layout_height="50dp"
 
         android:gravity="center"
-        android:text="Ваш заказ"
+        android:text="ВАШ ЗАКАЗ"
         android:textColor="@color/color_blue_dark"
-        android:textSize="18dp"
+        android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
