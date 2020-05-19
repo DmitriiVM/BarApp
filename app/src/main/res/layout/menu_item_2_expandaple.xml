@@ -19,7 +19,7 @@
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="@+id/buttonMinus"
         app:layout_constraintEnd_toStartOf="@+id/textViewPrice"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/imageViewArrow"
         app:layout_constraintTop_toTopOf="@+id/buttonMinus" />
 
     <TextView
@@ -37,9 +37,9 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@drawable/plus_button"
+        android:foreground="?android:attr/selectableItemBackground"
         android:gravity="center"
         android:text="+"
-        android:foreground="?android:attr/selectableItemBackground"
         android:textColor="@color/color_blue_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -59,15 +59,15 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@drawable/minus_button"
+        android:foreground="?android:attr/selectableItemBackground"
         android:gravity="center"
         android:text="-"
-        android:foreground="?android:attr/selectableItemBackground"
         android:textColor="@color/color_blue_dark"
         app:layout_constraintEnd_toStartOf="@+id/textViewQuantity"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageViewArrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/textViewName"
@@ -75,40 +75,44 @@
         app:layout_constraintTop_toTopOf="@+id/textViewName"
         app:srcCompat="@drawable/ic_expand" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="32dp"
-        android:background="@color/colorWhite"
-        android:elevation="4dp"
-        android:scaleType="centerCrop"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/expandable_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textViewDescription"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewQuantity"
-        app:srcCompat="@drawable/header_transformed" />
+        tools:visibility="visible">
 
-    <TextView
-        android:id="@+id/textViewDescription"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="С колбасками пепперони, ветчиной, грибами, острым перчиком халапеньо, сыром моцарелла и томатным соусом"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+        <ImageView
+            android:id="@+id/imageViewItem"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp"
+            android:background="@color/colorWhite"
+            android:elevation="4dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textViewDescription"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/header_transformed" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Вес: 340 гр."
-        android:paddingLeft="8dp"
-        app:layout_constraintStart_toStartOf="@+id/textViewDescription"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDescription" />
+        <TextView
+            android:id="@+id/textViewDescription"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="С колбасками пепперони, ветчиной, грибами, острым перчиком халапеньо, сыром моцарелла и томатным соусом"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageViewItem"
+            app:layout_constraintTop_toTopOf="@+id/imageViewItem" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

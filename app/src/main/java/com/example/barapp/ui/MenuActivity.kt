@@ -2,9 +2,7 @@ package com.example.barapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.core.view.isVisible
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.barapp.R
 import com.example.barapp.extensions.animateClose
@@ -13,7 +11,6 @@ import com.example.barapp.extensions.dpToPx
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_category.*
 import kotlinx.android.synthetic.main.header.*
 import kotlinx.android.synthetic.main.header.view.*
 
@@ -48,8 +45,8 @@ class MenuActivity : AppCompatActivity() {
                 positionOffsetPixels: Int
             ) {
                 val progress = (position + positionOffset) / 4
-                motionLayout.imageView.scaleX = 1.6f
-                motionLayout.imageView.translationX = 250 - progress * 300
+                motionLayout.imageViewArrow.scaleX = 1.6f
+                motionLayout.imageViewArrow.translationX = 250 - progress * 300
             }
         })
 
@@ -59,7 +56,6 @@ class MenuActivity : AppCompatActivity() {
 
             val offsetDiff = verticalOffset - lastPosition
             lastPosition = verticalOffset
-            Log.d("mmm", "MenuActivity :  offsetDiff --  $offsetDiff")
             bottomSheet.translationY = androidx.core.math.MathUtils.clamp(bottomSheet.translationY - offsetDiff.toFloat(), 0f, this.dpToPx(50))
         })
 

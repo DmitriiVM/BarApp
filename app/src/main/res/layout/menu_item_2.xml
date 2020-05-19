@@ -24,7 +24,7 @@
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="@+id/buttonMinus"
         app:layout_constraintEnd_toStartOf="@+id/textViewPrice"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/imageViewArrow"
         app:layout_constraintTop_toTopOf="@+id/buttonMinus" />
 
     <TextView
@@ -74,7 +74,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageViewArrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/textViewName"
