@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottomSheet"
     android:layout_width="match_parent"
     android:layout_height="450dp"
+    android:background="@drawable/bottomsheet_shape"
     android:elevation="4dp"
-    android:background="@drawable/order_shape"
-    android:orientation="vertical"
-    app:behavior_peekHeight="50dp"
+    app:behavior_peekHeight="@dimen/bottomsheet_peek_height"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewOrderTitle"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-
         android:gravity="center"
-        android:text="ВАШ ЗАКАЗ"
+        android:text="@string/bottomsheet_title"
         android:textColor="@color/color_blue_dark"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,25 +22,23 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView3"
         android:layout_width="20dp"
         android:layout_height="35dp"
         android:layout_marginEnd="16dp"
         android:tint="@color/color_blue_dark"
-        app:layout_constraintBottom_toBottomOf="@+id/textView2"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView2"
-        app:srcCompat="@drawable/ic_arrows" />
+        app:layout_constraintBottom_toBottomOf="@+id/textViewOrderTitle"
+        app:layout_constraintEnd_toStartOf="@+id/textViewOrderTitle"
+        app:layout_constraintTop_toTopOf="@+id/textViewOrderTitle"
+        app:srcCompat="@drawable/ic_expand_bottomsheet" />
 
     <Button
         android:id="@+id/buttonOrder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Заказать"
+        android:text="@string/button_order"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonClear"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -50,10 +46,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Очистить"
+        android:text="@string/button_clear"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonOrder" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

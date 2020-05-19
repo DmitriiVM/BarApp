@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    android:id="@+id/coordinatorLayout"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.MenuActivity">
@@ -20,13 +19,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/color_blue_dark"
+            app:tabIconTint="@drawable/tab_color_state_list"
             app:tabIndicatorColor="@color/colorAccent"
-            app:tabRippleColor="@color/colorWhite"
-            app:tabIconTint="@drawable/tab_color">
+            app:tabRippleColor="@color/colorWhite">
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"/>
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
@@ -45,197 +44,28 @@
                 android:layout_height="wrap_content" />
         </com.google.android.material.tabs.TabLayout>
 
-
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
-        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
-
 
     <FrameLayout
         android:id="@+id/menuScrim"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clickable="true"
-        android:focusable="true"
-        android:elevation="5dp"
         android:alpha="0"
         android:background="@color/colorScrim"
-        android:visibility="invisible"
-        />
-
-    <include android:id="@+id/bottomSheet" layout="@layout/bottom_sheet"/>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        app:layout_behavior=".ui.behaviors.FabBehavior"
-        android:id="@+id/fabMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_anchor="@id/bottomSheet"
-        app:layout_anchorGravity="top|end"
-        android:layout_gravity="top"
-        android:layout_marginRight="16dp"
-        app:srcCompat="@drawable/ic_menu" />
-
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabExit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:focusable="true"
         android:clickable="true"
-        app:fabSize="mini"
-        android:visibility="invisible"
-        tools:visibility="visible"
-        android:layout_gravity="bottom|end"
-        android:layout_marginBottom="100dp"
-        android:layout_marginRight="16dp"
-        app:srcCompat="@drawable/ic_exit" />
-
-    <TextView
-        android:id="@+id/textViewExit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Выйти"
-        android:paddingBottom="4dp"
-        android:paddingTop="4dp"
-        android:paddingEnd="8dp"
-        android:paddingStart="8dp"
-        android:visibility="invisible"
-        tools:visibility="visible"
         android:elevation="5dp"
-        android:background="@color/colorScrim"
-        android:textColor="@android:color/white"
-        app:layout_anchor="@id/fabExit"
-        android:layout_marginRight="70dp"
-        app:layout_anchorGravity="center"/>
-
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:fabSize="mini"
-        android:visibility="invisible"
-        tools:visibility="visible"
         android:focusable="true"
-        android:clickable="true"
-        android:background="?android:attr/selectableItemBackground"
-        android:layout_gravity="bottom|end"
-        android:layout_marginBottom="150dp"
-        android:layout_marginRight="16dp"
-        app:srcCompat="@drawable/ic_account" />
+        android:visibility="invisible" />
 
-    <TextView
-        android:id="@+id/textViewAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Аккаунт"
-        android:paddingBottom="4dp"
-        android:paddingTop="4dp"
-        android:paddingEnd="8dp"
-        android:paddingStart="8dp"
-        android:visibility="invisible"
-        tools:visibility="visible"
-        android:elevation="5dp"
-        android:background="@color/colorScrim"
-        android:textColor="@android:color/white"
-        app:layout_anchor="@id/fabAccount"
-        android:layout_marginRight="70dp"
-        app:layout_anchorGravity="center"/>
+    <include layout="@layout/bottom_sheet" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabSpecialOffer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:fabSize="mini"
-        android:visibility="invisible"
-        tools:visibility="visible"
-        android:layout_gravity="bottom|end"
-        android:layout_marginBottom="200dp"
-        android:layout_marginRight="16dp"
-        app:srcCompat="@drawable/ic_action" />
-
-    <TextView
-        android:id="@+id/textViewSpecialOffer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Акции"
-        android:paddingBottom="4dp"
-        android:paddingTop="4dp"
-        android:paddingEnd="8dp"
-        android:paddingStart="8dp"
-        android:visibility="invisible"
-        tools:visibility="visible"
-        android:elevation="5dp"
-        android:background="@color/colorScrim"
-        android:textColor="@android:color/white"
-        app:layout_anchor="@id/fabSpecialOffer"
-        android:layout_marginRight="70dp"
-        app:layout_anchorGravity="center"/>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabBooking"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:fabSize="mini"
-        android:visibility="invisible"
-        tools:visibility="visible"
-        android:layout_gravity="bottom|end"
-        android:layout_marginBottom="250dp"
-        android:layout_marginRight="16dp"
-        app:srcCompat="@drawable/ic_reserve" />
-
-    <TextView
-        android:id="@+id/textViewBooking"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Бронирование"
-        android:paddingBottom="4dp"
-        android:paddingTop="4dp"
-        android:paddingEnd="8dp"
-        android:paddingStart="8dp"
-        android:visibility="invisible"
-        tools:visibility="visible"
-        android:elevation="5dp"
-        android:background="@color/colorScrim"
-        android:textColor="@android:color/white"
-        app:layout_anchor="@id/fabBooking"
-        android:layout_marginRight="70dp"
-        app:layout_anchorGravity="center"/>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabContacts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:fabSize="mini"
-        android:visibility="invisible"
-        tools:visibility="visible"
-        android:layout_gravity="bottom|end"
-        android:layout_marginBottom="300dp"
-        android:layout_marginRight="16dp"
-        app:srcCompat="@drawable/ic_info" />
-
-    <TextView
-        android:id="@+id/textViewContacts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Контакты"
-        android:paddingBottom="4dp"
-        android:paddingTop="4dp"
-        android:paddingEnd="8dp"
-        android:paddingStart="8dp"
-        android:visibility="invisible"
-        tools:visibility="visible"
-        android:elevation="5dp"
-        android:background="@color/colorScrim"
-        android:textColor="@android:color/white"
-        app:layout_anchor="@id/fabContacts"
-        android:layout_marginRight="70dp"
-        app:layout_anchorGravity="center"/>
+    <include layout="@layout/app_menu" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,14 +1,10 @@
-package com.example.barapp.temp
+package com.example.barapp.temp_for_upload
 
 import com.example.barapp.models.MenuItem
 
 object MenuGenerator {
 
     var id = 0
-
-    fun getMenuList() = listOf(snackFrenchFries, snackIdaho, snackChickenStrips, snackQuesadilla, snackRoastBeef, saladWithBeetroot, saladCaesar, saladWithRoastBeef,
-        burger, burgerWithPulledPork, chickenburger, pizzaWithChicken, pizzaQuadroFormagio, pizzaPepperoni, pizzaMexican
-    )
 
     //  Snacks
     val snackFrenchFries = MenuItem(
@@ -58,9 +54,6 @@ object MenuGenerator {
             "snack"
         )
 
-
-
-
     // Salads
     val saladWithBeetroot = MenuItem(
         id++,
@@ -90,18 +83,15 @@ object MenuGenerator {
         "salad"
     )
 
-
-//    val soupCheeseSoup = MenuItem(
-//        id++,
-//        "Сырный крем-суп",
-//        "https://firebasestorage.googleapis.com/v0/b/barapp-c7add.appspot.com/o/menu_images%2Fsoup%2FsoupCheeseSoup.jpg?alt=media&token=cb4e2bf8-f38b-412d-9918-1b87d2233ea5",
-//        "На основе сыра и картофеля с гренками",
-//        140,
-//        300,
-//        "soup"
-//    )
-
-
+    val soupCheeseSoup = MenuItem(
+        id++,
+        "Сырный крем-суп",
+        "https://firebasestorage.googleapis.com/v0/b/barapp-c7add.appspot.com/o/menu_images%2Fsoup%2FsoupCheeseSoup.jpg?alt=media&token=cb4e2bf8-f38b-412d-9918-1b87d2233ea5",
+        "На основе сыра и картофеля с гренками",
+        140,
+        300,
+        "soup"
+    )
 
     // Burgers
     val burger = MenuItem(

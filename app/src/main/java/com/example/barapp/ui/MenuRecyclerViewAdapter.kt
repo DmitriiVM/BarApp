@@ -17,51 +17,16 @@ import kotlinx.android.synthetic.main.menu_item.view.buttonPlus
 import kotlinx.android.synthetic.main.menu_item.view.textViewName
 import kotlinx.android.synthetic.main.menu_item.view.textViewPrice
 import kotlinx.android.synthetic.main.menu_item.view.textViewQuantity
-import kotlinx.android.synthetic.main.menu_item_2_expandaple.view.*
+import kotlinx.android.synthetic.main.menu_item.view.*
 
 class MenuRecyclerViewAdapter() : RecyclerView.Adapter<MenuRecyclerViewAdapter.MenuViewHolder>() {
 
-//    private var menu: List<MenuItem> = arrayListOf()
-    private var menu: ArrayList<MenuItem> = arrayListOf()
-    private var quantity = 0
-    private var expandedItem : MenuItem? = null
+    private var menu: List<MenuItem> = arrayListOf()
+    private var expandedItem: MenuItem? = null
     private lateinit var recyclerView: RecyclerView
 
     fun setMenu(menu: List<MenuItem>) {
-        // for test
-        this.menu.addAll(menu)
-        val menuList1 = mutableListOf<MenuItem>()
-        menu.forEachIndexed { index, menuItem ->
-            menuList1.add(menuItem.copy())
-        }
-        menuList1.forEach {
-            it.id = it.id + 100
-            it.price = it.price + 1000
-        }
-        this.menu.addAll(menuList1)
-
-        val menuList2 = mutableListOf<MenuItem>()
-        menu.forEachIndexed { index, menuItem ->
-            menuList2.add(menuItem.copy())
-        }
-        menuList2.forEach {
-            it.id = it.id + 1000
-            it.price = it.price + 100000
-        }
-        this.menu.addAll(menuList2)
-
-        val menuList3 = mutableListOf<MenuItem>()
-        menu.forEachIndexed { index, menuItem ->
-            menuList3.add(menuItem.copy())
-        }
-        menuList3.forEach {
-            it.id = it.id + 10000
-            it.price = it.price + 10000000
-        }
-        this.menu.addAll(menuList3)
-        //  ------------------------
-
-//        this.menu = menu
+        this.menu = menu
         notifyDataSetChanged()
     }
 
@@ -72,112 +37,107 @@ class MenuRecyclerViewAdapter() : RecyclerView.Adapter<MenuRecyclerViewAdapter.M
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder =
         MenuViewHolder(
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.menu_item_2_expandaple, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.menu_item, parent, false)
         )
 
     override fun getItemCount(): Int = menu.size
 
     override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
         val item = menu[position]
+        val itemView = holder.itemView
 
-        if (item == expandedItem){
-            holder.itemView.expandable_container.isVisible = true
-            setExpandProgress(holder, 1f)
-        } else {
-            holder.itemView.expandable_container.isGone = true
-            setExpandProgress(holder, 0f)
-        }
+        initExpandedItemView(item, itemView)
+        holder.onBind(item)
 
-
-        holder.onBind(holder, item)
-
-
-
-
-        holder.itemView.setOnClickListener {
+        itemView.setOnClickListener {
             when (expandedItem) {
                 null -> {
-                    openItem(holder)
+                    openItemWithAnimation(itemView)
                     expandedItem = item
                 }
                 item -> {
-                    closeItem(holder, null)
+                    closeItemWithAnimation(itemView, null)
                     expandedItem = null
                 }
                 else -> {
-                    val expandedItemPosition = menu.indexOf(expandedItem!!)
                     val previousExpandedViewHolder =
-                        recyclerView.findViewHolderForAdapterPosition(expandedItemPosition) as? MenuViewHolder
+                        findPreviousExpandedViewHolder()
 
-                    if (previousExpandedViewHolder != null){
-                        closeItem(previousExpandedViewHolder, holder)
+                    if (previousExpandedViewHolder != null) {
+                        closeItemWithAnimation(previousExpandedViewHolder.itemView, holder)
                     } else {
-                        openItem(holder)
+                        openItemWithAnimation(itemView)
                     }
 
                     expandedItem = item
                 }
             }
-
         }
     }
 
-    private fun openItem(holder: MenuViewHolder) {
-
-        val animator = ValueAnimator.ofFloat(0f, 1f)
-        animator.duration = 200
-        animator.addUpdateListener { progress ->
-            setExpandProgress(holder, progress.animatedValue as Float)
+    private fun initExpandedItemView(item: MenuItem, itemView: View) {
+        if (item == expandedItem) {
+            itemView.expandable_container.isVisible = true
+            setExpandProgress(itemView, 1f)
+        } else {
+            itemView.expandable_container.isGone = true
+            setExpandProgress(itemView, 0f)
         }
-        animator.doOnEnd {
-            holder.itemView.expandable_container.isVisible = true
-            holder.itemView.expandable_container.alpha = 0f
-            holder.itemView.expandable_container.animate().alpha(1f).setDuration(200)
-        }
-        animator.start()
     }
 
-    private fun closeItem(holder: MenuViewHolder, holderToOpen: MenuViewHolder?){
-        holder.itemView.expandable_container.animate().alpha(0f).setDuration(200).withEndAction {
+    private fun findPreviousExpandedViewHolder(): MenuViewHolder? {
+        val expandedItemPosition = menu.indexOf(expandedItem!!)
+        return recyclerView.findViewHolderForAdapterPosition(expandedItemPosition) as? MenuViewHolder
+    }
 
-            holder.itemView.expandable_container.isVisible = false
-
-            holderToOpen?.let {
-                openItem(holderToOpen)
+    private fun openItemWithAnimation(itemView: View) {
+        createAnimator(itemView).apply {
+            doOnEnd {
+                with(itemView.expandable_container) {
+                    isVisible = true
+                    alpha = 0f
+                    animate().alpha(1f).setDuration(200)
+                }
             }
-
-            val animator = ValueAnimator.ofFloat(1f, 0f)
-            animator.duration = 200
-            animator.addUpdateListener { progress ->
-                setExpandProgress(holder, progress.animatedValue as Float)
-            }
-            animator.start()
+            start()
         }
-
     }
 
-
-
-    private fun setExpandProgress(
-        holder: MenuViewHolder,
-        progress: Float
-    ) {
-        holder.itemView.layoutParams.height =
-            (holder.itemView.context.dpToPx(50) + (holder.itemView.context.dpToPx(230) * progress)).toInt()
-        holder.itemView.requestLayout()
-
-        holder.itemView.imageViewArrow.rotation = - 180 * progress
+    private fun closeItemWithAnimation(itemView: View, holderToOpen: MenuViewHolder?) {
+        itemView.expandable_container.animate().alpha(0f)
+            .setDuration(200)
+            .withEndAction {
+                itemView.expandable_container.isVisible = false
+                holderToOpen?.let {
+                    openItemWithAnimation(holderToOpen.itemView)
+                }
+                createAnimator(itemView).reverse()
+            }
     }
 
-    inner class MenuViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    private fun createAnimator(itemView: View): ValueAnimator {
+        return ValueAnimator.ofFloat(0f, 1f).apply {
+            duration = 200
+            addUpdateListener { progress ->
+                setExpandProgress(itemView, progress.animatedValue as Float)
+            }
+        }
+    }
+
+    private fun setExpandProgress(itemView: View, progress: Float) {
+        with(itemView){
+            layoutParams.height =
+                (itemView.context.dpToPx(50) + (itemView.context.dpToPx(230) * progress)).toInt()
+            imageViewHeader.rotation = -180 * progress
+            requestLayout()
+        }
+    }
+
+    class MenuViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         private var quantity = 0
 
-        fun onBind(
-            holder: MenuViewHolder,
-            menuItem: MenuItem
-        ) {
+        fun onBind(menuItem: MenuItem) {
 
             with(itemView) {
                 textViewName.text = "${menuItem.name} ...................................."
@@ -185,12 +145,13 @@ class MenuRecyclerViewAdapter() : RecyclerView.Adapter<MenuRecyclerViewAdapter.M
                 Glide.with(this).load(menuItem.imageUrl).into(imageViewItem)
                 textViewDescription.text = "${menuItem.description}\n${menuItem.weight} гр."
 
-
                 buttonPlus.setOnClickListener {
                     textViewQuantity.text = (++quantity).toString()
                 }
                 buttonMinus.setOnClickListener {
-                    textViewQuantity.text = (--quantity).toString()
+                    if (textViewQuantity.text.toString().toInt() > 0) {
+                        textViewQuantity.text = (--quantity).toString()
+                    }
                 }
             }
         }

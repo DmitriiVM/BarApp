@@ -8,7 +8,6 @@ import com.example.barapp.util.ResponseResult
 
 class MenuViewModel : ViewModel() {
 
-    // inject
     private val repository = FirebaseDataSource()
 
     private val _menuLiveData = MutableLiveData<ResponseResult>()
@@ -22,6 +21,4 @@ class MenuViewModel : ViewModel() {
             _menuLiveData.value = result
         }
     }
-
-
 }

@@ -5,16 +5,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.CategoryFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycleView"
-            android:background="@color/colorWhite"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite" />
 
-        <View
-            android:layout_width="0.1dp"
-            android:layout_height="match_parent"
-            android:background="@color/color_blue_dark"
-            android:layout_gravity="end"/>
+    <View
+        android:layout_width="0.1dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:background="@color/color_blue_dark" />
 
 </FrameLayout>

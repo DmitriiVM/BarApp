@@ -1,6 +1,6 @@
 package com.example.barapp.models
 
-data class MenuItem @JvmOverloads constructor(
+data class MenuItem (
     var id : Int = 0,   // ---------------------------------------
     val name: String = "",
     val imageUrl: String = "",
@@ -9,7 +9,3 @@ data class MenuItem @JvmOverloads constructor(
     val weight: Int = 0,
     val category: String = ""
 )
-
-enum class Category{
-
-}

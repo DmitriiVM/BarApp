@@ -9,11 +9,11 @@ class ViewPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapte
 
     override fun createFragment(position: Int): Fragment {
                 return when (position) {
-                    0 -> CategoryFragment.newInstance("1", "")
-                    1 -> CategoryFragment.newInstance("2", "")
-                    2 -> CategoryFragment.newInstance("3", "")
-                    3 -> CategoryFragment.newInstance("4", "")
-                    else -> CategoryFragment.newInstance("5", "")
+                    0 -> CategoryFragment.newInstance("")
+                    1 -> CategoryFragment.newInstance("")
+                    2 -> CategoryFragment.newInstance("")
+                    3 -> CategoryFragment.newInstance("")
+                    else -> CategoryFragment.newInstance("")
                 }
     }
 }
