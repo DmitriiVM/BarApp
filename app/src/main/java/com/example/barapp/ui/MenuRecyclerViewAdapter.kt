@@ -164,8 +164,10 @@ class MenuRecyclerViewAdapter() : RecyclerView.Adapter<MenuRecyclerViewAdapter.M
         progress: Float
     ) {
         holder.itemView.layoutParams.height =
-            (holder.itemView.context.dpToPx(50) + (holder.itemView.context.dpToPx(244) * progress)).toInt()
+            (holder.itemView.context.dpToPx(50) + (holder.itemView.context.dpToPx(230) * progress)).toInt()
         holder.itemView.requestLayout()
+
+        holder.itemView.imageViewArrow.rotation = - 180 * progress
     }
 
     inner class MenuViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -181,7 +183,7 @@ class MenuRecyclerViewAdapter() : RecyclerView.Adapter<MenuRecyclerViewAdapter.M
                 textViewName.text = "${menuItem.name} ...................................."
                 textViewPrice.text = "${menuItem.price} р."
                 Glide.with(this).load(menuItem.imageUrl).into(imageViewItem)
-                textViewDescription.text = menuItem.description
+                textViewDescription.text = "${menuItem.description}\n${menuItem.weight} гр."
 
 
                 buttonPlus.setOnClickListener {

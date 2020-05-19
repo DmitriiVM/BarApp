@@ -5,17 +5,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.CategoryFragment">
 
-<!--    &lt;!&ndash; TODO: Update blank fragment layout &ndash;&gt;-->
-<!--    <TextView-->
-<!--        android:id="@+id/fragmentTextView"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:text="@string/hello_blank_fragment" />-->
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleView"
             android:background="@color/colorWhite"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+
+        <View
+            android:layout_width="0.1dp"
+            android:layout_height="match_parent"
+            android:background="@color/color_blue_dark"
+            android:layout_gravity="end"/>
 
 </FrameLayout>
