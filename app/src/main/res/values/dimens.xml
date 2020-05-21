@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="bottomsheet_peek_height">50dp</dimen>
+
+    <dimen name="margin_normal">16dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="scrim_elevation">5dp</dimen>
     <dimen name="fab_offset">30dp</dimen>
+    <dimen name="fab_exit_margin_bottom">100dp</dimen>
+    <dimen name="fab_account_margin_bottom">150dp</dimen>
+    <dimen name="fab_offer_margin_bottom">200dp</dimen>
+    <dimen name="fab_booking_margin_bottom">250dp</dimen>
+    <dimen name="fab_contacts_margin_bottom">300dp</dimen>
+    <dimen name="menu_text_margin_end">70dp</dimen>
+    <dimen name="bottomsheet_peek_height">50dp</dimen>
+    <dimen name="bottomsheet_radius">20dp</dimen>
+    <dimen name="bottomsheet_header_imageview_size">15dp</dimen>
+    <dimen name="item_padding">10dp</dimen>
+    <dimen name="expandable_container_height">200dp</dimen>
+    <dimen name="item_image_height">180dp</dimen>
+    <dimen name="item_image_width">180dp</dimen>
+    <dimen name="description_width">180dp</dimen>
+
 </resources>

@@ -1,15 +1,39 @@
 <resources>
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-<!--        <item name="colorPrimary">@color/colorPrimary</item>-->
-        <item name="colorPrimary">#050505</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
 
-
-
-
+    <style name="Widget.BarApp.TabStyle" parent="Widget.MaterialComponents.TabLayout">
+        <item name="tabIconTint">@drawable/tab_color_state_list</item>
+        <item name="tabIndicatorColor">?attr/colorSecondary</item>
+        <item name="tabRippleColor">?attr/colorPrimaryVariant</item>
     </style>
 
+    <style name="Widget.BarApp.FabStyle" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="rippleColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="Widget.BarApp.FabStyle.Mini" parent="Widget.BarApp.FabStyle">
+        <item name="fabSize">mini</item>
+        <item name="android:visibility">invisible</item>
+    </style>
+
+    <style name="Widget.BarApp.Button.Quantity" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="backgroundTint">?attr/colorPrimary</item>
+        <item name="android:textColor">?attr/colorPrimaryVariant</item>
+        <item name="rippleColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="Widget.BarApp.TextView.Menu" parent="Widget.MaterialComponents.TextView">
+        <item name="android:background">?attr/scrimBackground</item>
+        <item name="android:elevation">5dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:visibility">invisible</item>
+    </style>
 </resources>

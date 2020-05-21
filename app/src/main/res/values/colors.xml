@@ -1,13 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#160D37</color>
-<!--    <color name="colorAccent">#03DAC5</color>-->
-    <color name="colorAccent">#03DADA</color>
-
-
-    <color name="color_blue">#CADCE8</color>
-    <color name="color_blue_dark">#3679A5</color>
-    <color name="colorScrim">#A8000000</color>
-    <color name="colorWhite">#FFFFFF</color>
+    <color name="barapp_blue_100">#CADCE8</color>
+    <color name="barapp_blue_800">#3679A5</color>
+    <color name="barapp_blue_900">#2b5982</color>
+    <color name="barapp_green_200">#03DADA</color>
+    <color name="barapp_scrim">#A8000000</color>
+    <color name="barapp_black_600">#808080</color>
+    <color name="barapp_color_white">#FFFFFF</color>
 </resources>
+
+
+    <!--    <color name="colorPrimary">#6200EE</color>-->
+    <!--    <color name="colorPrimaryDark">#160D37</color>-->
+    <!--&lt;!&ndash;    <color name="colorAccent">#03DAC5</color>&ndash;&gt;-->
+    <!--    <color name="colorAccent">#03DADA</color>-->
+
+
+    <!--    <color name="my_app_primary_color">#01579b</color>-->
+    <!--    <color name="my_app_primary_variant_color">#002f6c</color>-->
+    <!--    <color name="my_app_secondary_color">#03dac5</color>-->
+
+
+    <!--    <color name="my_app_background_color">#FFFFFF</color>-->
+    <!--    <color name="my_app_error_color">#FFFFFF</color>-->
+    <!--    <color name="my_app_secondary_variant_color">#FFFFFF</color>-->
+    <!--    <color name="my_app_surface_color">#FFFFFF</color>-->
+    <!--    <color name="my_app_color_on_primary">#FFFFFF</color>-->
+    <!--    <color name="my_app_color_on_secondary">#FFFFFF</color>-->
+    <!--    <color name="my_app_color_on_background">#FFFFFF</color>-->
+    <!--    <color name="my_app_color_on_error">#FFFFFF</color>-->
+    <!--    <color name="my_app_color_on_surface">#FFFFFF</color>-->
+    <!--    <color name="scrim_color">#FFFFFF</color>-->

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextAppearance.BarApp.Headline6.BarName" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="TextAppearance.BarApp.Subtitle1.ItemTitle" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="TextAppearance.BarApp.Body1.Description" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">monospace</item>
+        <item name="fontFamily">monospace</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+</resources>
+
+
+    <!--        <attr name="textColor" />-->
+    <!--        <attr name="textSize" />-->
+    <!--        <attr name="textStyle" />-->
+    <!--        <attr name="typeface" />-->
+    <!--        <attr name="fontFamily" />-->
+    <!--        <attr name="textColorHighlight" />-->
+    <!--        <attr name="textColorHint" />-->
+    <!--        <attr name="textColorLink" />-->
+    <!--        <attr name="textAllCaps" format="boolean" />-->
+    <!--        <attr name="shadowColor" format="color" />-->
+    <!--        <attr name="shadowDx" format="float" />-->
+    <!--        <attr name="shadowDy" format="float" />-->
+    <!--        <attr name="shadowRadius" format="float" />-->
+    <!--        <attr name="elegantTextHeight" format="boolean" />-->
+    <!--        <attr name="letterSpacing" format="float" />-->
+    <!--        <attr name="fontFeatureSettings" format="string" />-->

@@ -9,33 +9,43 @@
     app:behavior_peekHeight="@dimen/bottomsheet_peek_height"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-    <TextView
+
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/textViewOrderTitle"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="@dimen/bottomsheet_peek_height"
         android:gravity="center"
         android:text="@string/bottomsheet_title"
-        android:textColor="@color/color_blue_dark"
-        android:textSize="16dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:layout_width="20dp"
-        android:layout_height="35dp"
-        android:layout_marginEnd="16dp"
-        android:tint="@color/color_blue_dark"
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/bottomsheet_header_imageview_size"
+        android:layout_height="@dimen/bottomsheet_header_imageview_size"
+        android:layout_marginEnd="@dimen/margin_normal"
+        android:tint="?attr/colorOnPrimary"
         app:layout_constraintBottom_toBottomOf="@+id/textViewOrderTitle"
         app:layout_constraintEnd_toStartOf="@+id/textViewOrderTitle"
         app:layout_constraintTop_toTopOf="@+id/textViewOrderTitle"
         app:srcCompat="@drawable/ic_expand_bottomsheet" />
 
-    <Button
+    <View
+        android:id="@+id/view"
+        android:background="@color/barapp_color_white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewOrderTitle" />
+
+    <com.google.android.material.button.MaterialButton
+
         android:id="@+id/buttonOrder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="@dimen/margin_normal"
         android:text="@string/button_order"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonClear"
@@ -45,7 +55,7 @@
         android:id="@+id/buttonClear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="@dimen/margin_normal"
         android:text="@string/button_clear"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

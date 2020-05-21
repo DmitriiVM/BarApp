@@ -2,6 +2,7 @@ package com.example.barapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.core.math.MathUtils
 import androidx.core.view.isVisible
 import androidx.viewpager2.widget.ViewPager2
@@ -66,6 +67,8 @@ class MenuActivity : AppCompatActivity() {
         }
 
         menuScrim.setOnClickListener { closeMenu() }
+
+        fabExit.setOnClickListener {  }
     }
 
     private fun animateTitle(

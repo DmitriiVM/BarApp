@@ -9,12 +9,12 @@
         android:id="@+id/recycleView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorWhite" />
+        android:background="@color/barapp_color_white" />
 
     <View
+        android:id="@+id/divider"
         android:layout_width="0.1dp"
         android:layout_height="match_parent"
         android:layout_gravity="end"
-        android:background="@color/color_blue_dark" />
-
+        android:background="?android:attr/listDivider" />
 </FrameLayout>
