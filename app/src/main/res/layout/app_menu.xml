@@ -110,7 +110,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/margin_normal"
         android:layout_marginBottom="@dimen/fab_contacts_margin_bottom"
-        app:srcCompat="@drawable/ic_menu_info"
+        app:srcCompat="@drawable/ic_menu_contacts"
         tools:visibility="visible" />
 
     <com.google.android.material.textview.MaterialTextView

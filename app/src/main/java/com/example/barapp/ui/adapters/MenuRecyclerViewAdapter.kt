@@ -1,4 +1,4 @@
-package com.example.barapp.ui
+package com.example.barapp.ui.adapters
 
 import android.animation.ValueAnimator
 import android.view.LayoutInflater

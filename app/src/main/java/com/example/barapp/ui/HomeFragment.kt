@@ -1,47 +1,53 @@
 package com.example.barapp.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import androidx.fragment.app.Fragment
+import android.view.View
+import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.core.math.MathUtils
 import androidx.core.view.isVisible
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.barapp.R
 import com.example.barapp.extensions.ANIMATION_DURATION
 import com.example.barapp.extensions.animateClose
 import com.example.barapp.extensions.animateOpen
-import com.example.barapp.extensions.dpToPx
+import com.example.barapp.ui.adapters.ViewPagerAdapter
 import com.example.barapp.util.getIcons
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.bottom_sheet.*
 import kotlinx.android.synthetic.main.app_menu.*
-import kotlinx.android.synthetic.main.app_menu.view.*
+import kotlinx.android.synthetic.main.bottom_sheet.*
+import kotlinx.android.synthetic.main.fragment_menu.*
 import kotlinx.android.synthetic.main.header.*
 import kotlinx.android.synthetic.main.header.view.*
-import kotlinx.android.synthetic.main.menu_item.*
 
-class MenuActivity : AppCompatActivity() {
+class HomeFragment : Fragment(R.layout.fragment_menu) {
 
     private var isMenuOpen = false
     private var lastPosition = 0
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initViewPager()
         initListeners()
+
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {
+                if (isMenuOpen) closeMenu() else requireActivity().finish()
+            }
+        })
     }
 
+
     private fun initViewPager() {
-        viewPager.adapter = ViewPagerAdapter(this)
+        viewPager.adapter = ViewPagerAdapter(requireActivity())
         viewPager.offscreenPageLimit = 5
         val icons = getIcons()
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            tab.icon = getDrawable(icons[position])
+            tab.icon = getDrawable(requireContext(), icons[position])
         }.attach()
 
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
@@ -68,7 +74,12 @@ class MenuActivity : AppCompatActivity() {
 
         menuScrim.setOnClickListener { closeMenu() }
 
-        fabExit.setOnClickListener {  }
+        fabContacts.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_contactsFragment)
+        }
+//        fabContacts.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_contactsFragment, null))
+        fabExit.setOnClickListener { requireActivity().finish() }
+
     }
 
     private fun animateTitle(
@@ -126,10 +137,6 @@ class MenuActivity : AppCompatActivity() {
         fabExit.animateClose(8 * ANIMATION_DELAY)
     }
 
-    override fun onBackPressed() {
-        if (isMenuOpen) closeMenu() else super.onBackPressed()
-    }
-
     companion object {
         private const val PAGE_NUMBERS = 5
         private const val IMAGE_SCALE_FACTOR = 1.6f
@@ -140,5 +147,8 @@ class MenuActivity : AppCompatActivity() {
         private const val ANIMATION_DELAY = 30L
         private const val ALPHA_INITIAL_VALUE = 0f
         private const val ALPHA_FINAL_VALUE = 1f
+
+        @JvmStatic
+        fun newInstance(param1: String, param2: String) = HomeFragment()
     }
 }

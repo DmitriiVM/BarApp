@@ -7,19 +7,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.barapp.R
+import com.example.barapp.ui.adapters.MenuRecyclerViewAdapter
 import com.example.barapp.util.ResponseResult
 import kotlinx.android.synthetic.main.fragment_category.*
-class CategoryFragment : Fragment(R.layout.fragment_category) {
+class MenuFragment : Fragment(R.layout.fragment_category) {
 
     private var category: String? = null
 
-    private lateinit var viewModel: MenuViewModel
+    private lateinit var viewModel: MainViewModel
     private lateinit var adapter: MenuRecyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel = ViewModelProvider(this).get(MenuViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
 
         arguments?.let {
             category = it.getString(ARG_CATEGORY)
@@ -40,15 +41,15 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
     private fun subscribeForMenu() {
         viewModel.menuLiveData.observe(viewLifecycleOwner, Observer { result ->
             when (result) {
-                is ResponseResult.Loading -> {
-
-                }
+//                is ResponseResult.Loading -> {
+//
+//                }
                 is ResponseResult.Data -> {
                     adapter.setMenu(result.menu)
                 }
-                is ResponseResult.Error -> {
-
-                }
+//                is ResponseResult.Error -> {
+//
+//                }
             }
         })
     }
@@ -57,7 +58,7 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
         private const val ARG_CATEGORY = "category"
 
         fun newInstance(category: String) =
-            CategoryFragment().apply {
+            MenuFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_CATEGORY, category)
                 }
